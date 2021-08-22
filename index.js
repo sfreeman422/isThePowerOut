@@ -12,10 +12,12 @@ function main() {
   console.log("Pinging ", url, "\n You will only be alerted if a ping fails.");
 
   let numberOfTexts = 0;
+  let numberOfFailures = 0;
 
   ping.on("fail", function (data) {
     console.log("Failure", data);
-    if (numberOfTexts < 5) {
+    numberOfFailures += 1;
+    if (numberOfTexts < 5 && numberOfFailures >= 5) {
       console.log("Alerting ", process.env.to);
       twilio.messages
         .create({
