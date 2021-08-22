@@ -30,7 +30,10 @@ function main() {
 
           if (numberOfTexts === 5) {
             console.log("Max limit reached - will alert again in 30 seconds");
-            setTimeout(() => (numberOfTexts = 0), 30000);
+            setTimeout(() => {
+              numberOfTexts = 0;
+              numberOfFailures = 0;
+            }, 30000);
           }
         })
         .catch((e) => console.error(e));
