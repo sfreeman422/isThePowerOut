@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "ping-wrapper": "^0.0.3",
+    "twilio": "^3.67.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
