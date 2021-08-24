@@ -17,6 +17,7 @@ function main() {
   ping.on("fail", function (data) {
     console.log("Failure", data);
     numberOfFailures += 1;
+    setTimeout(() => (numberOfFailures -= 1), 30000);
     if (numberOfTexts < 5 && numberOfFailures >= 5) {
       console.log("Alerting ", process.env.to);
       twilio.messages
