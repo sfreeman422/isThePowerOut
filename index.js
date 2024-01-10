@@ -14,11 +14,14 @@ function main() {
     "Sending test message. If you do not receive shortly, check your Twilio credentials."
   );
 
-  twilio.messages.create({
-    body: `ALERT: This is a test alert from Power Alerter confirming that you are receiving alerts.`,
-    to: process.env.to, // Text this number
-    from: process.env.from, // From a valid Twilio number
-  });
+  twilio.messages
+    .create({
+      body: `ALERT: This is a test alert from Power Alerter confirming that you are receiving alerts.`,
+      to: process.env.to, // Text this number
+      from: process.env.from, // From a valid Twilio number
+    })
+    .then(() => console.log("Test message sent."))
+    .catch((e) => console.error(e));
 
   let numberOfTexts = 0;
   let numberOfFailures = 0;
