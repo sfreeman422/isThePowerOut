@@ -14,8 +14,18 @@ function main() {
     "Sending test message. If you do not receive shortly, check your Twilio credentials."
   );
 
+  twilio.messages.create({
+    body: `ALERT: This is a test alert from Power Alerter confirming that you are receiving alerts.`,
+    to: process.env.to, // Text this number
+    from: process.env.from, // From a valid Twilio number
+  });
+
   let numberOfTexts = 0;
   let numberOfFailures = 0;
+
+  ping.on("success", function () {
+    console.log("Successfully pinged at ", new Date().toLocaleString());
+  });
 
   ping.on("fail", function (data) {
     console.log("Failure", data);
