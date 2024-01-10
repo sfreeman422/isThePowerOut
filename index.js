@@ -11,7 +11,7 @@ function main() {
 
   console.log("Pinging ", url, "\n You will only be alerted if a ping fails.");
   console.log(
-    "Sending test message. If you do not receive shortly, check your Twilio credentials."
+    `Sending test message from ${process.env.from} to ${process.env.to}. If you do not receive shortly, check your Twilio credentials.`
   );
 
   twilio.messages
