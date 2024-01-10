@@ -6,10 +6,13 @@ const Ping = require("ping-wrapper");
 
 function main() {
   Ping.configure();
-  const url = "192.168.1.93";
+  const url = "100.1.163.14";
   const ping = new Ping(url);
 
   console.log("Pinging ", url, "\n You will only be alerted if a ping fails.");
+  console.log(
+    "Sending test message. If you do not receive shortly, check your Twilio credentials."
+  );
 
   let numberOfTexts = 0;
   let numberOfFailures = 0;
